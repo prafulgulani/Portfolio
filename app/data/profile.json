@@ -1,0 +1,19 @@
+{
+  "name": "Praful Gulani",
+  "role": "Junior Software Developer at Deepiotics",
+  "location": "Indore, India",
+  "leetcode": {
+    "totalSolved": 1033,
+    "easySolved": 296,
+    "mediumSolved": 581,
+    "hardSolved": 156,
+    "ranking": 25020
+  },
+  "education": "BSc Computer Science, Goldsmiths, University of London (Distance Learning)",
+  "skills": [
+    "Python",
+    "Machine Learning",
+    "Django",
+    "Next.js"
+  ]
+}

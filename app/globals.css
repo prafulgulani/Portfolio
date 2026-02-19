@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --color-bg: var(--bg-color);
-  --color-tx-main: var(--text-main);
-  --color-tx-dim: var(--text-dim);
+  --color-surface: var(--surface-color);
+  --color-text-main: var(--text-main);
+  --color-text-dim: var(--text-dim);
   --color-accent: var(--accent-color);
-  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
 }
 
 @layer base {

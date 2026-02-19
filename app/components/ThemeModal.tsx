@@ -7,44 +7,57 @@ export default function ThemeModal() {
   const [activeThemeId, setActiveThemeId] = useState('theme-bert-dark');
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // 1. Function to actually "paint" the CSS variables
   const paintTheme = (theme: Theme) => {
     const root = document.documentElement;
     root.style.setProperty('--bg-color', theme.bg);
+    root.style.setProperty('--surface-color', theme.surface);
     root.style.setProperty('--text-main', theme.textMain);
     root.style.setProperty('--text-dim', theme.textDim);
     root.style.setProperty('--accent-color', theme.accent);
-    root.style.setProperty('--accent-soft', theme.accentSoft);
-    
-    // Update Favicon
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon) {
-      const svgCode = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="${theme.accent}" /><text x="16" y="21" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="${theme.bg}">PG</text></svg>`;
-      favicon.setAttribute('href', `data:image/svg+xml,${encodeURIComponent(svgCode)}`);
+    root.style.setProperty('--on-accent', theme.onAccent);
+
+    // 2. Dynamic Favicon Logic
+    if (typeof window !== 'undefined') {
+        // Look for existing icon, or create a new one
+        let favicon = document.querySelector('link[rel~="icon"]') as HTMLLinkElement;
+        
+        if (!favicon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        document.head.appendChild(favicon);
+        }
+
+        const svgCode = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="14" fill="${theme.accent}" />
+            <text x="16" y="21" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="${theme.bg}">
+            PG
+            </text>
+        </svg>`.trim();
+
+        // Use a timestamp to force the browser to ignore its cache
+        const version = new Date().getTime();
+        favicon.setAttribute('href', `data:image/svg+xml,${encodeURIComponent(svgCode)}#v=${version}`);
     }
   };
 
-  // 2. Click handler: Save and Close
   const handleSelect = (theme: Theme) => {
     paintTheme(theme);
     setActiveThemeId(theme.id);
     localStorage.setItem('user-theme', theme.id);
-    setIsOpen(false); // Closes the menu
+    setIsOpen(false);
   };
 
-  // 3. Hover handler: Just preview
   const handleHover = (theme: Theme) => {
     paintTheme(theme);
   };
 
-  // 4. Reset on Mouse Leave: If they don't click, go back to saved theme
   const handleMouseLeaveMenu = () => {
     const savedId = localStorage.getItem('user-theme') || 'theme-bert-dark';
     const savedTheme = THEMES.find(t => t.id === savedId) || THEMES[0];
     paintTheme(savedTheme);
   };
 
-  // Close when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -55,7 +68,6 @@ export default function ThemeModal() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Initial Load
   useEffect(() => {
     const savedId = localStorage.getItem('user-theme') || 'theme-bert-dark';
     const savedTheme = THEMES.find(t => t.id === savedId) || THEMES[0];
@@ -75,6 +87,7 @@ export default function ThemeModal() {
       {isOpen && (
         <div 
           onMouseLeave={handleMouseLeaveMenu}
+          /* Updated bg-bg and border-accent/20 to match logic */
           className="absolute top-full right-0 mt-2 w-64 bg-bg border border-accent/20 rounded-xl shadow-2xl z-50 overflow-hidden"
         >
           <div className="p-2 grid gap-1 max-h-80 overflow-y-auto">
@@ -89,10 +102,13 @@ export default function ThemeModal() {
                     : 'hover:bg-accent/5'
                 }`}
               >
-                <span className="text-sm font-semibold text-tx-main">{theme.name}</span>
+                {/* 🚀 Changed text-tx-main to text-text-main */}
+                <span className="text-sm font-semibold text-text-main">{theme.name}</span>
+                
+                {/* Visual Preview Dots */}
                 <div className="flex gap-1">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.bg }}></div>
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.accent }}></div>
+                  <div className="w-3 h-3 rounded-full border border-text-dim/20" style={{ backgroundColor: theme.bg }}></div>
+                  <div className="w-3 h-3 rounded-full border border-text-dim/20" style={{ backgroundColor: theme.accent }}></div>
                 </div>
               </button>
             ))}
