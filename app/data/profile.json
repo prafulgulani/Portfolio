@@ -9,11 +9,6 @@
     "hardSolved": 156,
     "ranking": 25020
   },
-  "education": "BSc Computer Science, Goldsmiths, University of London (Distance Learning)",
-  "skills": [
-    "Python",
-    "Machine Learning",
-    "Django",
-    "Next.js"
-  ]
+  "education": "BSc Computer Science, Goldsmiths, University of London (2021-2025)",
+  "skills": ["Python", "Machine Learning", "Django", "Next.js"]
 }
