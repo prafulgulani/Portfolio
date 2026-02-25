@@ -3,12 +3,12 @@ name: Update Portfolio Data
 on:
   schedule:
     - cron: "0 0 * * *" # Runs at 00:00 UTC every day
-  workflow_dispatch: # Allows you to run it manually from GitHub UI
+  workflow_dispatch: # Allow to run it manually from GitHub
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 permissions:
   contents: write
 
