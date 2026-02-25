@@ -7,7 +7,6 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-black text-text-main whitespace-nowrap">
             About Me
           </h2>
-          <div className="h-1px w-full bg-accent/20"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
@@ -37,16 +36,16 @@ export default function About() {
               </p>
               <ul className="grid grid-cols-2 gap-2 text-sm font-mono">
                 <li className="flex items-center gap-2">
-                  <span className="text-accent">▹</span> Python & ML
+                  <span className="text-accent">▹</span> Generative AI
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-accent">▹</span> Machine Learning
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-accent">▹</span> Open Source
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-accent">▹</span> Deep Learning
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-accent">▹</span> Cloud Architecture
+                  <span className="text-accent">▹</span> AI Agents
                 </li>
               </ul>
             </div>

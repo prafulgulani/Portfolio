@@ -3,12 +3,18 @@
   "role": "Junior Software Developer at Deepiotics",
   "location": "Indore, India",
   "leetcode": {
-    "totalSolved": 1033,
-    "easySolved": 296,
-    "mediumSolved": 581,
-    "hardSolved": 156,
-    "ranking": 25020
+    "contestRating": 1673,
+    "percentile": 15.31,
+    "totalSolved": 1044,
+    "easySolved": 300,
+    "mediumSolved": 586,
+    "hardSolved": 158
   },
-  "education": "BSc Computer Science, Goldsmiths, University of London (2021-2025)",
-  "skills": ["Python", "Machine Learning", "Django", "Next.js"]
+  "education": "BSc Computer Science, Goldsmiths, University of London",
+  "interests": [
+    "AI Agents",
+    "Generative Systems",
+    "Open Source",
+    "Machine Learning"
+  ]
 }

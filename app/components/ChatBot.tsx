@@ -11,7 +11,9 @@ export default function ChatBot() {
     useChat({
       streamProtocol: "data",
     });
+  const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -19,14 +21,36 @@ export default function ChatBot() {
     }
   }, [messages]);
 
+  // 2. Handle Focus logic
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
+    } else {
+      // When it closes, put focus back on the circle button
+      // so hitting 'Enter' works immediately
+      buttonRef.current?.focus();
+    }
+  }, [isOpen]);
+
+  // 3. Global Escape listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* 1. Launcher Button: Using 'bg' as text to contrast against the 'accent' circle */}
       {!isOpen && (
         <button
+        ref={buttonRef} 
           onClick={() => setIsOpen(true)}
-          className="bg-on-accent hover:bg-accent text-bg p-4 rounded-full shadow-lg hover:scale-110 transition-transform cursor-pointer"
-        >
+          className="bg-on-accent hover:bg-accent text-bg p-4 rounded-full shadow-lg hover:scale-110 transition-transform cursor-pointer outline-none focus:ring-2 focus:ring-text-main focus:ring-offset-2 focus:ring-offset-bg"        >
           <MessageCircle size={25} />
         </button>
       )}
@@ -39,7 +63,7 @@ export default function ChatBot() {
             <div className="flex items-center gap-2 text-accent">
               <Bot size={20} />
               <span className="font-bold text-sm tracking-wider">
-                Praful's bot
+                AI Assistant
               </span>
             </div>
             <button
@@ -100,6 +124,7 @@ export default function ChatBot() {
             className="p-2 flex gap-2 bg-bg"
           >
             <input
+              ref={inputRef}
               value={input}
               onChange={handleInputChange}
               placeholder="Ask anything..."
