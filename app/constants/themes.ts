@@ -26,7 +26,7 @@ export const THEMES: Theme[] = [
     bg: "#EAE7DC",
     surface: "#D8C3A5",
     textMain: "#000000",
-    textDim: "#8E8D8A",
+    textDim: "#666564",
     accent: "#E85A4F",
     onAccent: "#E98074",
   },

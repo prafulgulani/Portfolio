@@ -1,6 +1,8 @@
 import Hero from "./components/Hero";
 import About from "./components/About";
 import TechStack from "./components/TechStack";
+import OpenSource from "./components/OpenSource";
+import Experience from "./components/Experience";
 
 export default function Home() {
   return (
@@ -14,6 +16,12 @@ export default function Home() {
 
         {/* Tech Stack Section */}
         <TechStack />
+
+        {/* Open Source Contributions Section */}
+        <OpenSource />
+
+        {/* Experience Section */}
+        <Experience />
       </div>
     </main>
   );

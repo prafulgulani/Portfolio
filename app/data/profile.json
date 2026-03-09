@@ -27,11 +27,11 @@
       "date": "2026-02-18",
       "url": "https://github.com/django/django/pull/20724",
       "description": [
-    "Refactored the django.template namespace to explicitly define its public API using __all__, removing the need for redundant # NOQA linter suppressions.",
-    "Resolved a circular import error caused by the reordering of the autoreload module, ensuring proper initialization of the EngineHandler.",
-    "Streamlined module imports by removing unnecessary isort:skip tags and improving static analysis support for IDEs and developers.",
-    "Demonstrated a deep understanding of Django's internal boot process and dependency management between template engines and system utilities."
-  ]
+        "Refactored the django.template namespace to explicitly define its public API using __all__, removing the need for redundant # NOQA linter suppressions.",
+        "Resolved a circular import error caused by the reordering of the autoreload module, ensuring proper initialization of the EngineHandler.",
+        "Streamlined module imports by removing unnecessary isort:skip tags and improving static analysis support for IDEs and developers.",
+        "Demonstrated a deep understanding of Django's internal boot process and dependency management between template engines and system utilities."
+      ]
     },
     {
       "id": 3932550893,
@@ -42,11 +42,11 @@
       "date": "2026-02-12",
       "url": "https://github.com/django/django/pull/20685",
       "description": [
-      "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
-      "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
-      "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
-      "Authored technical documentation for the Django 6.1 release detailing API best practices."
-    ]
+        "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
+        "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
+        "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
+        "Authored technical documentation for the Django 6.1 release detailing API best practices."
+      ]
     },
     {
       "id": 2838598570,
@@ -57,12 +57,24 @@
       "date": "2025-02-07",
       "url": "https://github.com/matplotlib/matplotlib/pull/29590",
       "description": [
-      "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
-      "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
-      "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
-      "Authored technical documentation for the Django 6.1 release detailing API best practices."
-    ]
+        "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
+        "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
+        "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
+        "Authored technical documentation for the Django 6.1 release detailing API best practices."
+      ]
     }
   ],
-  "last_os_update": "2026-02-26"
+  "last_os_update": "2026-02-26",
+  "experience": [
+    {
+      "company": "Deepiotics",
+      "role": "Junior Software Developer",
+      "period": "Feb 2026 - Present",
+      "achievements": [
+        "Developed high-performance web scrapers using Python and ScraperAPI to automate data collection.",
+        "Built and optimized customer churn prediction models using Machine Learning to provide actionable business insights.",
+        "Designed and deployed responsive chatbot interfaces."
+      ]
+    }
+  ]
 }

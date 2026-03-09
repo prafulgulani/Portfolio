@@ -128,7 +128,18 @@ def main():
             ],
             "last_os_update": "2021-01-01",
             "openSource": [],
-            "experience": []
+            "experience": [
+                {
+                "company": "Deepiotics",
+                "role": "Junior Software Developer",
+                "period": "Feb 2026 - Present",
+                "achievements": [
+                    "Developed high-performance web scrapers using Python and ScraperAPI to automate data collection.",
+                    "Built and optimized customer churn prediction models using Machine Learning to provide actionable business insights.",
+                    "Designed and deployed responsive chatbot interfaces."
+                ]
+                }
+            ]
         }
 
     # 2. Update LeetCode
