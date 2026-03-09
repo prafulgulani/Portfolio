@@ -1,7 +1,8 @@
 {
   "name": "Praful Gulani",
-  "role": "Junior Software Developer at Deepiotics",
+  "role": "Junior Software Developer",
   "location": "Indore, India",
+  "education": "BSc Computer Science, Goldsmiths, University of London",
   "leetcode": {
     "contestRating": 1637,
     "percentile": 18.85,
@@ -10,11 +11,58 @@
     "mediumSolved": 597,
     "hardSolved": 161
   },
-  "education": "BSc Computer Science, Goldsmiths, University of London",
   "interests": [
     "AI Agents",
     "Generative Systems",
     "Open Source",
     "Machine Learning"
+  ],
+  "openSource": [
+    {
+      "id": 3958275211,
+      "org": "django",
+      "repo": "django",
+      "title": "Fixed #36835 -- Added all public API classes to django.template.__all__.",
+      "status": "in-review",
+      "date": "2026-02-18",
+      "url": "https://github.com/django/django/pull/20724",
+      "description": [
+    "Refactored the django.template namespace to explicitly define its public API using __all__, removing the need for redundant # NOQA linter suppressions.",
+    "Resolved a circular import error caused by the reordering of the autoreload module, ensuring proper initialization of the EngineHandler.",
+    "Streamlined module imports by removing unnecessary isort:skip tags and improving static analysis support for IDEs and developers.",
+    "Demonstrated a deep understanding of Django's internal boot process and dependency management between template engines and system utilities."
   ]
+    },
+    {
+      "id": 3932550893,
+      "org": "django",
+      "repo": "django",
+      "title": "Fixed #36894 -- Added TypeError for conflicting arguments in mail APIs.",
+      "status": "in-review",
+      "date": "2026-02-12",
+      "url": "https://github.com/django/django/pull/20685",
+      "description": [
+      "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
+      "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
+      "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
+      "Authored technical documentation for the Django 6.1 release detailing API best practices."
+    ]
+    },
+    {
+      "id": 2838598570,
+      "org": "matplotlib",
+      "repo": "matplotlib",
+      "title": "Blocked set_clim() callbacks to prevent inconsistent state (#29522)",
+      "status": "merged",
+      "date": "2025-02-07",
+      "url": "https://github.com/matplotlib/matplotlib/pull/29590",
+      "description": [
+      "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
+      "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
+      "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
+      "Authored technical documentation for the Django 6.1 release detailing API best practices."
+    ]
+    }
+  ],
+  "last_os_update": "2026-02-26"
 }

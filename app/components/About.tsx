@@ -13,21 +13,31 @@ export default function About() {
           {/* Text Content (Takes up 2 columns on PC) */}
           <div className="md:col-span-2 space-y-6 text-text-dim text-lg leading-relaxed">
             <p>
-              Hello! My name is Praful. I enjoy building things that live on the
-              internet, whether that be websites, applications, or anything in
-              between.
+              Hey! I'm Praful, a Software Developer. I’m
+              currently a Junior Software Developer at Deepiotics, having
+              completed my B.Sc. in Computer Science from Goldsmiths, University
+              of London.
             </p>
+
             <p>
-              My interest in AI and Machine Learning started back in university,
-              and since then, I've been focused on bridging the gap between{" "}
-              <span className="text-accent">clean code</span>
-              and <span className="text-accent">intelligent algorithms</span>.
+              Most of my technical growth comes from a mix of competitive
+              programming and deep-diving into open-source internals. I've
+              solved over 1,000 problems on LeetCode with a 1673 contest rating,
+              which helps me approach complex backend logic with a focus on
+              efficiency.
             </p>
+
             <p>
-              I’ve had the privilege of contributing to open-source projects
-              like <span className="text-accent font-bold">Matplotlib</span> and
-              working on diverse projects ranging from web scrapers to churn
-              prediction models.
+              I’ve also contributed to major open-source libraries like
+              <span className="text-accent font-bold"> Matplotlib</span> and
+              <span className="text-accent font-bold"> Django</span>. Rather than
+              just using tools, I enjoy fixing the bugs inside them.
+            </p>
+
+            <p>
+              Lately, I've been focused on Python and Machine Learning,
+              specifically working toward building AI Agents and robust backend
+              systems.
             </p>
 
             <div>
