@@ -6,9 +6,9 @@
   "leetcode": {
     "contestRating": 1637,
     "percentile": 18.85,
-    "totalSolved": 1064,
+    "totalSolved": 1066,
     "easySolved": 306,
-    "mediumSolved": 597,
+    "mediumSolved": 599,
     "hardSolved": 161
   },
   "interests": [
@@ -18,6 +18,18 @@
     "Machine Learning"
   ],
   "openSource": [
+    {
+      "id": 4039009712,
+      "org": "django",
+      "repo": "django",
+      "title": "Fixed #36892 -- Added LazySerializer for lazy objects in migrations.",
+      "status": "in-review",
+      "date": "2026-03-07",
+      "url": "https://github.com/django/django/pull/20863",
+      "description": [
+        "to be added"
+      ]
+    },
     {
       "id": 3958275211,
       "org": "django",
@@ -64,7 +76,7 @@
       ]
     }
   ],
-  "last_os_update": "2026-02-26",
+  "last_os_update": "2026-03-10",
   "experience": [
     {
       "company": "Deepiotics",
