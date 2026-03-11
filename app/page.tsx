@@ -12,16 +12,22 @@ export default function Home() {
         <Hero />
 
         {/* About Me Section */}
-        <About />
+        <section id="about" className="scroll-mt-24">
+          <About />
+        </section>
+
+        {/* Open Source Contributions Section */}
+        <section id="contributions" className="scroll-mt-24">
+          <OpenSource />
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="scroll-mt-24">
+          <Experience />
+        </section>
 
         {/* Tech Stack Section */}
         <TechStack />
-
-        {/* Open Source Contributions Section */}
-        <OpenSource />
-
-        {/* Experience Section */}
-        <Experience />
       </div>
     </main>
   );

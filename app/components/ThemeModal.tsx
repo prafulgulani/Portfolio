@@ -16,7 +16,7 @@ export default function ThemeModal() {
     root.style.setProperty("--accent-color", theme.accent);
     root.style.setProperty("--on-accent", theme.onAccent);
 
-    // 2. Dynamic Favicon Logic
+    // Dynamic Favicon Logic
     if (typeof window !== "undefined") {
       // Look for existing icon, or create a new one
       let favicon = document.querySelector(
@@ -92,7 +92,6 @@ export default function ThemeModal() {
       {isOpen && (
         <div
           onMouseLeave={handleMouseLeaveMenu}
-          /* Updated bg-bg and border-accent/20 to match logic */
           className="absolute top-full right-0 mt-2 w-64 bg-bg border border-accent/20 rounded-xl shadow-2xl z-50 overflow-hidden"
         >
           <div className="p-2 grid gap-1 max-h-80 overflow-y-auto">

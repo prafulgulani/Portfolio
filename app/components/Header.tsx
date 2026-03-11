@@ -4,36 +4,45 @@ import ThemeModal from "./ThemeModal";
 
 export default function Header() {
   return (
-    /* 1. bg-surface handles the background, backdrop-blur-md adds the blur effect */
-    <header className="fixed top-0 left-0 right-0 z-40 bg-surface backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-surface/80 backdrop-blur-md border-b border-on-accent/5">
       <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* 2. Brand: Highlighted with text-accent */}
         <Link
           href="/"
-          className="text-xl font-bold tracking-tighter text-accent hover:opacity-80 transition-opacity"
+          className="font-serif text-3xl font-bold italic text-accent transition-all duration-150 hover:-translate-y-1 hover:scale-105"
         >
-          PG
+          Praful
         </Link>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {/* 3. Using text-text-main for high contrast and hover:text-accent for the pop */}
+        <div className="hidden md:flex items-center gap-10">
           <Link
-            href="/about"
-            className="text-sm font-medium text-text-main hover:text-accent transition-colors"
+            href="#about"
+            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
           >
             About
           </Link>
           <Link
-            href="/projects"
-            className="text-sm font-medium text-text-main hover:text-accent transition-colors"
+            href="#contributions"
+            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+          >
+            Open Source
+          </Link>
+          <Link
+            href="#experience"
+            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+          >
+            Experience
+          </Link>
+          <Link
+            href="#projects"
+            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
           >
             Projects
           </Link>
           <Link
-            href="/resume.pdf"
+            href="/resume/resume.pdf"
             target="_blank"
-            className="text-sm font-medium text-text-main hover:text-accent transition-colors"
+            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
           >
             Resume
           </Link>
