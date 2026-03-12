@@ -21,15 +21,13 @@ export default function OpenSource() {
 
   return (
     <section id="opensource" className="py-24 scroll-mt-20">
-      {/* Large Heading - Matched with About Me */}
       <div className="flex items-center gap-4 mb-12">
         <h2 className="text-3xl md:text-4xl font-black text-text-main whitespace-nowrap">
           Open Source Contributions
         </h2>
       </div>
 
-      {/* Org Tabs - Kept clean without the underlining border */}
-      <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide font-serif">
         {orgs.map((org) => (
           <button
             key={org}
@@ -46,7 +44,7 @@ export default function OpenSource() {
       </div>
 
       {/* Main Dashboard Container */}
-      <div className="flex flex-col md:flex-row bg-surface border border-on-accent/10 rounded-xl overflow-hidden h-auto md:h-150">
+      <div className="font-serif flex flex-col md:flex-row bg-surface border border-on-accent/10 rounded-xl overflow-hidden h-auto md:h-150">
         
         {/* Selection List (Mobile: Horizontal / Desktop: Vertical) */}
         <div className="w-full md:w-80 border-b md:border-b-0 md:border-r border-on-accent/10 bg-on-accent/5">
@@ -62,14 +60,14 @@ export default function OpenSource() {
                 }`}
               >
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-[9px] font-mono uppercase text-text-dim/60">{pr.date}</span>
-                  <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded border ${
+                  <span className="text-sm text-text-dim">{pr.date}</span>
+                  <span className={`text-sm uppercase px-1.5 py-0.5 rounded border ${
                     pr.status === 'merged' ? 'text-green-500 border-green-500/20' : 'text-accent border-accent/20'
                   }`}>
                     {pr.status}
                   </span>
                 </div>
-                <h4 className={`text-sm font-bold leading-tight line-clamp-2 ${
+                <h4 className={`font-bold leading-tight line-clamp-2 ${
                   selectedPrId === pr.id ? "text-accent" : "text-text-main"
                 }`}>
                   {pr.title}

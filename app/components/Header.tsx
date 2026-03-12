@@ -8,41 +8,41 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link
           href="/"
-          className="font-serif text-3xl font-bold italic text-accent transition-all duration-150 hover:-translate-y-1 hover:scale-105"
+          className="font-serif text-3xl font-bold text-accent transition-all duration-150 hover:-translate-y-1 hover:scale-105"
         >
           Praful
         </Link>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="text-xs hidden uppercase font-sans font-extrabold md:flex items-center gap-10">
           <Link
             href="#about"
-            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+            className="hover:text-accent"
           >
             About
           </Link>
           <Link
             href="#contributions"
-            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+            className="hover:text-accent"
           >
             Open Source
           </Link>
           <Link
             href="#experience"
-            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+            className="hover:text-accent"
           >
             Experience
           </Link>
           <Link
             href="#projects"
-            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+            className="hover:text-accent"
           >
             Projects
           </Link>
           <Link
             href="/resume/resume.pdf"
             target="_blank"
-            className="text-xs font-sans uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors"
+            className="hover:text-accent"
           >
             Resume
           </Link>

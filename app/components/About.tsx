@@ -7,7 +7,7 @@ export default function About() {
       {/* About Me Section */}
       <section id="about" className="py-24 scroll-mt-20">
         <div className="flex items-center gap-4 mb-12">
-          <h2 className="text-3xl md:text-4xl text-text-main whitespace-nowrap">
+          <h2 className="text-3xl font-black md:text-4xl text-text-main whitespace-nowrap">
             About Me
           </h2>
         </div>
@@ -48,10 +48,10 @@ export default function About() {
             </p>
 
             <div>
-              <p className="font-sans font-bold text-text-main mb-4 uppercase tracking-widest text-sm">
+              <p className="font-sans font-black text-text-main mb-4 text-xl">
                 Things I'm Passionate About:
               </p>
-              <ul className="grid grid-cols-2 gap-2 text-sm font-mono">
+              <ul className="font-serif grid grid-cols-2 gap-2 text-base">
                 <li className="flex items-center gap-2">
                   <span className="text-accent">▹</span> Generative AI
                 </li>
@@ -68,21 +68,20 @@ export default function About() {
             </div>
           </div>
 
-          {/* Image Container (Takes up 1 column on PC) */}
+          {/* Image Container */}
           <div className="relative group max-w-72 mx-auto md:mx-0">
             {/* The Decorative Back-Box */}
             <div className="absolute inset-0 border-2 border-accent rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300 z-0"></div>
 
-            {/* The Image Wrapper */}
+            {/* Image Wrapper */}
             <div className="relative rounded-lg overflow-hidden">
               {" "}
-              {/* bg-bg prevents any transparency issues */}
               <img
                 src="/picture/profile.png"
                 alt="Praful Gulani"
                 className="object-cover w-full h-full block"
               />
-              {/* The Tint Overlay (The "Colored Glass") */}
+              {/* Tint Overlay */}
               <div className="absolute inset-0 bg-accent/20 group-hover:bg-transparent transition-colors duration-300"></div>
             </div>
           </div>
