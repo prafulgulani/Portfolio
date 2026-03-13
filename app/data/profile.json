@@ -4,12 +4,12 @@
   "location": "Indore, India",
   "education": "BSc Computer Science, Goldsmiths, University of London",
   "leetcode": {
-    "contestRating": 1637,
-    "percentile": 18.85,
-    "totalSolved": 1068,
+    "contestRating": 1649,
+    "percentile": 17.54,
+    "totalSolved": 1069,
     "easySolved": 307,
     "mediumSolved": 599,
-    "hardSolved": 162
+    "hardSolved": 163
   },
   "interests": [
     "AI Agents",
@@ -76,7 +76,7 @@
       ]
     }
   ],
-  "last_os_update": "2026-03-12",
+  "last_os_update": "2026-03-13",
   "experience": [
     {
       "company": "Deepiotics",
