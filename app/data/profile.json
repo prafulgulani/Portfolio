@@ -6,9 +6,9 @@
   "leetcode": {
     "contestRating": 1649,
     "percentile": 17.54,
-    "totalSolved": 1078,
+    "totalSolved": 1079,
     "easySolved": 309,
-    "mediumSolved": 604,
+    "mediumSolved": 605,
     "hardSolved": 165
   },
   "interests": [
@@ -76,7 +76,7 @@
       ]
     }
   ],
-  "last_os_update": "2026-03-16",
+  "last_os_update": "2026-03-17",
   "experience": [
     {
       "company": "Deepiotics",
