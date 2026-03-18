@@ -27,7 +27,7 @@ export default function Home() {
         </section>
 
         {/* Tech Stack Section */}
-        <TechStack />
+        {/* <TechStack />  */}
       </div>
     </main>
   );

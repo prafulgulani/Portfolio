@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # CONFIGURATION
@@ -14,37 +14,47 @@ TOKEN = os.getenv('MY_GITHUB_TOKEN')
 HEADERS = {"Authorization": f"token {TOKEN}"} if TOKEN else {}
 
 def fetch_incremental_os(last_run_date):
-    contributions = []
-    # Search for PRs in whitelist orgs updated since last_run_date
-    # Includes both merged and open (in-review) PRs
-    query = f"author:{USERNAME} " + " ".join([f"org:{org}" for org in WHITELIST]) + f" updated:>{last_run_date}"
-    url = f"https://api.github.com/search/issues?q={query}"
+    all_contributions = []
     
-    try:
-        response = requests.get(url, headers=HEADERS)
-        items = response.json().get('items', [])
+    for org in WHITELIST:
+        # 1. Search one org at a time (fixes the OR bug)
+        query = f"author:{USERNAME} org:{org} is:pr updated:>{last_run_date}"
+        url = f"https://api.github.com/search/issues?q={query}"
         
-        for item in items:
-            # Determine status
-            status = "in-review"
-            if item.get('pull_request', {}).get('merged_at'):
-                status = "merged"
-            elif item['state'] == 'closed':
-                status = "closed"
+        print(f"Fetching {org}...")
+        try:
+            response = requests.get(url, headers=HEADERS)
+            items = response.json().get('items', [])
+            
+            for item in items:
+                # 2. Get the detail URL (The Truth)
+                pr_detail_url = item.get('pull_request', {}).get('url')
+                status = "in-review"
+                
+                if pr_detail_url:
+                    detail_resp = requests.get(pr_detail_url, headers=HEADERS)
+                    detail_data = detail_resp.json()
+                    
+                    # 3. Check for the definitive 'merged' boolean
+                    if detail_data.get('merged'):
+                        status = "merged"
+                    elif item['state'] == 'closed':
+                        status = "closed"
 
-            contributions.append({
-                "id": item['id'],
-                "org": item['repository_url'].split('/')[-2], # Extracts org name
-                "repo": item['repository_url'].split('/')[-1],
-                "title": item['title'],
-                "status": status,
-                "date": item['created_at'].split('T')[0],
-                "url": item['html_url'],
-                "description": ["to be added"] 
-            })
-    except Exception as e:
-        print(f"Error fetching GitHub data: {e}")
-    return contributions
+                all_contributions.append({
+                    "id": item['id'],
+                    "org": org,
+                    "repo": item['repository_url'].split('/')[-1],
+                    "title": item['title'],
+                    "status": status,
+                    "date": item['created_at'].split('T')[0],
+                    "url": item['html_url'],
+                    "description": ["to be added"] 
+                })
+        except Exception as e:
+            print(f"Error fetching {org}: {e}")
+            
+    return all_contributions
 
 def get_leetcode_stats(username):
     url = "https://leetcode.com/graphql"
@@ -153,9 +163,23 @@ def main():
 
     new_os = fetch_incremental_os(last_update)
     profile["openSource"] = merge_data(profile.get("openSource", []), new_os)
-    profile["last_os_update"] = datetime.now().strftime("%Y-%m-%d")
 
-    # 4. Save
+    # 4. SMART DATE LOGIC (The "Oldest Open PR" strategy)
+    # Filter for items that aren't merged or closed yet
+    open_prs = [item for item in profile["openSource"] if item["status"] == "in-review"]
+    
+    if open_prs:
+        # Find the oldest date among open PRs and subtract 1 day for safety
+        oldest_date_str = min(item["date"] for item in open_prs)
+        oldest_date = datetime.strptime(oldest_date_str, "%Y-%m-%d") - timedelta(days=1)
+        profile["last_os_update"] = oldest_date.strftime("%Y-%m-%d")
+        print(f"Next run will check from {profile['last_os_update']} to monitor open PRs.")
+    else:
+        # If no open PRs, move the checkpoint to today
+        profile["last_os_update"] = datetime.now().strftime("%Y-%m-%d")
+        print("All PRs up to date. Checkpoint moved to today.")
+
+    # 5. Save
     os.makedirs(os.path.dirname(PROFILE_PATH), exist_ok=True)
     with open(PROFILE_PATH, 'w') as f:
         json.dump(profile, f, indent=2)
