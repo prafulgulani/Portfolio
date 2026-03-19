@@ -6,9 +6,9 @@
   "leetcode": {
     "contestRating": 1649,
     "percentile": 17.54,
-    "totalSolved": 1080,
+    "totalSolved": 1081,
     "easySolved": 309,
-    "mediumSolved": 606,
+    "mediumSolved": 607,
     "hardSolved": 165
   },
   "interests": [
@@ -50,7 +50,7 @@
       "org": "django",
       "repo": "django",
       "title": "Fixed #36894 -- Added TypeError for conflicting arguments in mail APIs.",
-      "status": "in-review",
+      "status": "merged",
       "date": "2026-02-12",
       "url": "https://github.com/django/django/pull/20685",
       "description": [
@@ -76,7 +76,7 @@
       ]
     }
   ],
-  "last_os_update": "2021-01-01",
+  "last_os_update": "2026-02-17",
   "experience": [
     {
       "company": "Deepiotics",
