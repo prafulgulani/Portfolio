@@ -12,17 +12,17 @@ export default function Home() {
         <Hero />
 
         {/* About Me Section */}
-        <section id="about" className="scroll-mt-24">
+        <section id="about">
           <About />
         </section>
 
         {/* Open Source Contributions Section */}
-        <section id="contributions" className="scroll-mt-24">
+        <section id="contributions">
           <OpenSource />
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="scroll-mt-24">
+        <section id="experience">
           <Experience />
         </section>
 

@@ -2,7 +2,9 @@ import requests
 import json
 import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # CONFIGURATION
 USERNAME = "prafulgulani"
@@ -17,7 +19,7 @@ def fetch_incremental_os(last_run_date):
     all_contributions = []
     
     for org in WHITELIST:
-        # 1. Search one org at a time (fixes the OR bug)
+        # 1. Search one org at a time
         query = f"author:{USERNAME} org:{org} is:pr updated:>{last_run_date}"
         url = f"https://api.github.com/search/issues?q={query}"
         
@@ -27,7 +29,7 @@ def fetch_incremental_os(last_run_date):
             items = response.json().get('items', [])
             
             for item in items:
-                # 2. Get the detail URL (The Truth)
+                # 2. Get the detail URL
                 pr_detail_url = item.get('pull_request', {}).get('url')
                 status = "in-review"
                 

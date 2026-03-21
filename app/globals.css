@@ -31,6 +31,10 @@
       font-weight: 900;
       letter-spacing: -0.02em;
   }
+
+  section[id] {
+    scroll-margin-top: 1rem; /* This is roughly 80px */
+  }
 }
 
 @layer utilities {

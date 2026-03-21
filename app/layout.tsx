@@ -24,14 +24,12 @@ export default function RootLayout({
         />
       </head>
       <body className="pt-16">
-        {/* The Header stays at the top */}
         <Header />
 
-        {/* The actual page content (from page.tsx) goes here */}
         <main>{children}</main>
         <Analytics />
         <SpeedInsights />
-        {/* The ChatBot stays floating at the bottom right */}
+
         <ChatBot />
       </body>
     </html>

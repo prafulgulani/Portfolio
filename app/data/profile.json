@@ -27,10 +27,10 @@
       "date": "2026-03-07",
       "url": "https://github.com/django/django/pull/20863",
       "description": [
-        "Engineered a custom LazySerializer to resolve a long-standing regression where lazy-evaluated tuples (e.g., in model choices) caused redundant migration generation.",
-        "Implemented advanced deconstruction of django.utils.functional.Promise objects using __reduce__ to correctly identify and serialize wrapped non-string types.",
-        "Integrated a conditional logic flow in serializer_factory to distinguish between translatable strings (lazy-i18n) and functional lazy objects, ensuring zero breakage for existing string-based migrations.",
-        "Developed a robust regression test suite validating the serialization and reconstruction of lazy-wrapped tuples, lists, and dictionaries within the MigrationWriter."
+        "Fixed a bug in Django Migrations where using lazy-evaluated tuples in model choices caused the same migration to be generated repeatedly.",
+        "Created a new 'LazySerializer' that uses Python's '__reduce__' method to correctly break down and rebuild lazy objects during serialization.",
+        "Added logic to distinguish between translatable strings (which should stay strings) and functional objects (which need to be reconstructed).",
+        "Wrote new test cases to ensure that lazy tuples, lists, and dictionaries are correctly handled by the MigrationWriter without triggering unnecessary changes."
       ]
     },
     {
@@ -72,10 +72,10 @@
       "date": "2025-02-07",
       "url": "https://github.com/matplotlib/matplotlib/pull/29590",
       "description": [
-        "Refactored core email APIs to enforce strict argument validation, preventing silent failures when conflicting parameters were provided.",
-        "Implemented explicit TypeError raises across the django.core.mail module to improve developer debugging and API consistency.",
-        "Developed exhaustive test suites using unittest.subTest to validate keyword arguments and ensured backward compatibility.",
-        "Authored technical documentation for the Django 6.1 release detailing API best practices."
+        "Fixed a bug in Matplotlib where updating color limits (vmin/vmax) caused the plot colors to break when a colorbar was present.",
+        "Identified that updating the minimum and maximum values separately was triggering 'changed' signals too early, putting the plot in an invalid state.",
+        "Used a 'callbacks.blocked' context manager to pause updates until both limits were correctly set, ensuring the UI only refreshes once.",
+        "Added a new test using mocks to confirm that exactly one update signal is sent, preventing unnecessary re-renders and potential crashes."
       ]
     }
   ],
