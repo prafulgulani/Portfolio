@@ -3,6 +3,8 @@ import ChatBot from "./components/ChatBot";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ScrollHandler from "./components/ScrollHandler";
+
 
 export default function RootLayout({
   children,
@@ -26,6 +28,7 @@ export default function RootLayout({
       <body className="pt-16">
         <Header />
 
+        <ScrollHandler />
         <main>{children}</main>
         <Analytics />
         <SpeedInsights />
