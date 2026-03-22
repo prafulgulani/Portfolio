@@ -30,6 +30,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper
+        env:
+            MY_GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: python scripts/update_stats.py
 
       - name: Commit and Push
