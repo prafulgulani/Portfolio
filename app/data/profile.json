@@ -5,11 +5,11 @@
   "education": "BSc Computer Science, Goldsmiths, University of London",
   "leetcode": {
     "contestRating": 1639,
-    "percentile": 19.47,
-    "totalSolved": 1203,
+    "percentile": 19.53,
+    "totalSolved": 1204,
     "easySolved": 340,
     "mediumSolved": 664,
-    "hardSolved": 199
+    "hardSolved": 200
   },
   "interests": [
     "AI Agents",
